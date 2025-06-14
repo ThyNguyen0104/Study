@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.baothy.basis</groupId>
+    <artifactId>maven-to-go</artifactId>
+    <version>83.86</version>
+
+    <properties>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <!--Khai báo các thư viện cần dùng - nay gọi là dependency, tới project này cân cậu ở trên mạng tớ muốn cậu về máy tớ giúp tớ viết code, cậu là dependency của tớ-->
+    <!--Mún tìm đến cậu , tớ khai báo hô sơ  về cậu - hồ sơ
+     này là duy  nhất về cậu gồm 3 thông số
+     group Id - tên công ty heo miền đảo ngược
+     artifactId - tên cậu - người tớ phụ thuộc
+     version - cậu thuộc phiên bản nào
+     Maven ở máy local đi kèm với Intellij tự biết tên kho jar toàn cầu - mvnrepository.com tải về do hồ sơ cậu uy nhất trên đó
+     Format khai báo ò sơ, cậu lên kho mà tìm
+     Ngay chính cái project đang làm cũng có hồ sơ y chang
+     Đây là kĩ thuật quản lí các dependency o Maven chế ra
+     Add dependency bản chất là ải thư viện về project để dùng trong code!!!
+     -->
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.8.1.jre11</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build an executable JAR - Tạo file jar có thể chạy được!-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                com.baothy.basis.Main <!-- tên-package-và-tên-class-chứa-hàm-main -->
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
